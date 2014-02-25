@@ -16,7 +16,7 @@ cursor = None
 def dBaseInit():
   database = MySQLdb.connect(HOST, DB_USER, DB_PASSWORD, DATABASE)#connects to database
   cursor = database.cursor()
-  if(cursor is not None && database is not None):
+  if(cursor is not None and database is not None):
     initialized = True
     
 def queryName(searchTerm): #queries by exact name
