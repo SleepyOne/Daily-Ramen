@@ -1,3 +1,11 @@
+DROP DATABASE RamenDB;
+
+CREATE DATABASE IF NOT EXISTS RamenDB;
+GRANT ALL PRIVILEGES ON RamenDB.* to 'RamenMaster'@'localhost' 
+identified by 'RamenPassword';
+USE RamenDB;
+
+
 CREATE TABLE recipes
 (
   recipe_id INT NOT NULL AUTO_INCREMENT,
