@@ -1,5 +1,38 @@
 <!DOCTYPE HTML>
 <html>
+<head> 
+<style type="text/css"> 
+<!-- 
+ 
+ #navbar ul { 
+	margin: 0; 
+	padding: 10px; 
+	list-style-type: none; 
+	text-align: center; 
+	background-color: #FF7519 
+	}
+ 
+#navbar ul li {  
+	display: inline; 
+	} 
+ 
+#navbar ul li a { 
+	text-decoration: none; 
+	padding: .2em 1em; 
+	color: #fff; 
+	background-color: #FF7519; 
+  font-family:"Verdana";
+	}
+ 
+#navbar ul li a:hover { 
+	color: #000; 
+	background-color: #fff; 
+	} 
+ 
+--> 
+</style> 
+</head> 
+  
 <body>
   <title>Daily Ramen</title>
   <br/>
@@ -11,7 +44,20 @@
       <font face="verdana" size="4" color="#FF7519"><a href="http://pythonbox-69406.use1.nitrousbox.com/lions.html">Register</a></font></span>
   </h1>  
   </header>
-  <center><div style="background-color:#FF7519;width:800px;height:75px;border:2px solid #FF7519"></div></center>
+  
+  <div id="navbar"> 
+  <ul> 
+	  <li><a href="#">Home</a></li> 
+	  <li><a href="#">My Ramen</a></li> 
+	  <li><a href="#">Recipes</a></li> 
+	  <li><a href="#">More</a></li> 
+	  <li><a href="#">Stuff</a></li>
+    <li><form action="search.ext">
+            <input type="text" name="searchword">
+            <input type="submit" value="Search">
+      </form></li>
+  </ul> 
+  </div> 
   
   <br/><br/>
   
