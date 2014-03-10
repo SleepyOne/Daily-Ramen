@@ -17,6 +17,5 @@ CREATE TABLE recipes
   PRIMARY KEY (recipe_id)
 );
 
-
-INSERT INTO recipes (recipe_name, recipe_instructions, recipe_ingredients, recipe_creator, recipe_rating) VALUES ('Ramen', 'You can either put boiling water in the ramen or you can boil the noodles in the water.' "Ramen, Water", 'Ian', 1);
-INSERT INTO recipes (recipe_name, recipe_instructions, recipe_ingredients, recipe_creator, recipe_rating) VALUES ('Salad', 'Mix ingrediants in a large covered bowl then consume.' "Salad", 'Ian', 2);
+INSERT INTO recipes (recipe_id, recipe_name, recipe_instructions, recipe_ingredients, recipe_creator, recipe_rating) VALUES (NULL,'Ramen', 'You can either put boiling water in the ramen or you can boil the noodles in the water.', "Ramen, Water", 'Ian', 1);
+INSERT INTO recipes (recipe_id, recipe_name, recipe_instructions, recipe_ingredients, recipe_creator, recipe_rating) VALUES (NULL,'Salad', 'Mix ingrediants in a large covered bowl then consume.', "Salad", 'Ian', 2);
