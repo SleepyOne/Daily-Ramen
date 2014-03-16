@@ -32,11 +32,18 @@ def queryName(searchTerm): #queries by exact name
     cursor.execute('Select * from ' + TABLE + ' where recipe_name like "' + searchTerm + '";')
     return cursor.fetchall()
   else:
-    print "Not logged into database!\n"
+    print "Not logged in to database!\n"
 
 def searchSimilarName(searchTerm): #queries by term is contained in recipe name
   if initialized:
     cursor.execute('Select * from ' + TABLE + ' where recipe_name Like "%' + searchTerm + '%" and recipe_name not like "' + searchTerm + '";')
+    return cursor.fetchall()
+  else:
+    print "Not logged in to database!\n"
+	
+def searchIngredients(searchTerm): #queries by ingredients the recipe contains
+  if initialized:
+    # Query will be added after we convert tables to 3NF
     return cursor.fetchall()
   else:
     print "Not logged in to database!\n"
