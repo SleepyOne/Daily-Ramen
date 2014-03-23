@@ -43,7 +43,8 @@ def searchSimilarName(searchTerm): #queries by term is contained in recipe name
 	
 def searchIngredients(searchTerm): #queries by ingredients the recipe contains
   if initialized:
-    # Query will be added after we convert tables to 3NF
+    # QUERY IS NOT COMPLETE
+    cursor.execute('Select * from ' + TABLE + ' JOIN ingredients ON ingredients.ingredient_id = recipeIngredients.ingredient_id JOIN recipeIngredients ON recipes.recipe_id = recipeIngredients.recipe_id' 
     return cursor.fetchall()
   else:
     print "Not logged in to database!\n"

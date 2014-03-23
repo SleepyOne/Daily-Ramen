@@ -39,6 +39,20 @@ INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Chocolat
 INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Chicken');
 
 
+CREATE TABLE recipeIngredients
+(
+    recipe_id int NOT NULL,
+    ingredient_id int NOT NULL,
+    CONSTRAINT PK_recipeIngredients PRIMARY KEY
+    (
+        recipe_id,
+        ingredient_id
+    ),
+    FOREIGN KEY (recipe_id) REFERENCES recipes (recipe_id),
+    FOREIGN KEY (ingredient_id) REFERENCES ingredients (ingredient_id)
+);
+
+
 CREATE TABLE users
 (
   user_id INT NOT NULL AUTO_INCREMENT,
