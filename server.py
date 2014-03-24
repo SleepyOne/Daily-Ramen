@@ -6,7 +6,7 @@ app = Flask(__name__)
 def mainIndex():
   return render_template('index.html')
 
-@app.route('/search.ext', methods=['GET','POST'])
+@app.route('/search', methods=['GET','POST'])
 def search():
   
   searcher = ''
@@ -16,7 +16,7 @@ def search():
 
   exactMatches = dBase.queryName(searcher)
   closeMatches = dBase.searchSimilarName(searcher)
-  return render_template('search.ext',matches=exactMatches,closeMatches=closeMatches)
+  return render_template('search.html',matches=exactMatches,closeMatches=closeMatches)
 
 @app.route('/login')
 def login():
@@ -25,6 +25,10 @@ def login():
 @app.route('/createAccount')
 def createAccount():
   return render_template('createAccount.html')
+
+@app.route('/underConstruction')
+def underConstruction():
+  return render_template('underConstruction.html')
 
 if __name__ == '__main__':
     app.debug = True
