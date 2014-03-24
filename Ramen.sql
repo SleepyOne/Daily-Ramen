@@ -60,3 +60,13 @@ CREATE TABLE users
   password VARCHAR(25),
   PRIMARY KEY (user_id)
 );
+
+CREATE TABLE comments
+(
+  comment_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  comment TEXT,
+  recipe_id INT NOT NULL,
+  CONSTRAINT recipe_recipe_id_fk
+  FOREIGN KEY (recipe_id)
+  REFERENCES recipe (recipe_id)
+);
