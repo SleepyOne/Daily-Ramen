@@ -1,18 +1,25 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
+<center>
 <h4>Enter Your Information</h4>
 <form method = "post" action = '/confirm'>
-  
-  <label for = 'name'>Name:</label>
-  <input type = 'text' id = 'name' name = 'name'>
-  <p></p>
-  <label for = 'password'>Password:</label>
-  <input type = 'password' id = 'password' name = 'password'><p></p>
-  <label for = 'password con'>Confirm Password:</label>
-  <input type = 'password' id = 'password con' name = 'password con'><p></p>
-  <input type="submit" value="Register" name="submit" />
+  <table>
+    <tr>
+      <td><label for = 'name'>Name:</label></td>
+      <td><input type = 'text' id = 'name' name = 'name'></td>
+    </tr>  
+    <tr>
+      <td><label for = 'password'>Password:</label></td>
+      <td><input type = 'password' id = 'password' name = 'password'></td>
+    </tr>
+    <tr>
+      <td><label for = 'password con'>Confirm Password:</label></td>
+      <td><input type = 'password' id = 'password con' name = 'password con'></td>
+    </tr>
+    </table>
+    <p></p>
+    <input type="submit" value="Register" name="submit" />
 </form>
-
+</center>
 {% endblock %}

@@ -6,11 +6,12 @@ app = Flask(__name__)
 def mainIndex():
   return render_template('index.html')
 
-@app.route('/search.ext', methods=['POST'])
+@app.route('/search.ext', methods=['GET','POST'])
 def search():
-
-  searcher = request.form['searchword']
-
+  
+  searcher = ''
+  if request.method == 'POST':
+    searcher = request.form['searchword']
   dBase.dBaseInit()
 
   exactMatches = dBase.queryName(searcher)
