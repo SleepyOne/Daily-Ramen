@@ -1,3 +1,6 @@
+{% extends "layout.html" %}
+
+{% block content %}
 
 <h4>Results:</h4>
 <h3>_____</h3>
@@ -17,4 +20,6 @@
   <p><strong>Directions: </strong>{{x[2]}}</p>
   <h3>_____</h3>
 {% endfor %}
+
+{% endblock %}
 

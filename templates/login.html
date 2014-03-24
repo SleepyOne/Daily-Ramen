@@ -1,3 +1,7 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
 <form method="post" action="/confirmLogin">
     <p>
     <label for="username">Username:</label>
@@ -8,3 +12,5 @@
 
     <p><input type="submit" value="login" name="submit" /></p>
 </form>
+
+{% endblock %}

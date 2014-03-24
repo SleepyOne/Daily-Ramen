@@ -1,3 +1,7 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
 <h4>Enter Your Information</h4>
 <form method = "post" action = '/confirm'>
   
@@ -10,3 +14,5 @@
   <input type = 'password' id = 'password con' name = 'password con'><p></p>
   <input type="submit" value="Register" name="submit" />
 </form>
+
+{% endblock %}

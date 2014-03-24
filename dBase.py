@@ -29,6 +29,7 @@ def dBaseInit():
     
 def queryName(searchTerm): #queries by exact name
   if initialized:
+    global cursor
     cursor.execute('Select * from ' + TABLE + ' where recipe_name like "' + searchTerm + '";')
     return cursor.fetchall()
   else:
@@ -36,6 +37,7 @@ def queryName(searchTerm): #queries by exact name
 
 def searchSimilarName(searchTerm): #queries by term is contained in recipe name
   if initialized:
+    global cursor
     cursor.execute('Select * from ' + TABLE + ' where recipe_name Like "%' + searchTerm + '%" and recipe_name not like "' + searchTerm + '";')
     return cursor.fetchall()
   else:
@@ -43,8 +45,9 @@ def searchSimilarName(searchTerm): #queries by term is contained in recipe name
 	
 def searchIngredients(searchTerm): #queries by ingredients the recipe contains
   if initialized:
+    global cursor
     # QUERY IS NOT COMPLETE
-    cursor.execute('Select * from ' + TABLE + ' JOIN ingredients ON ingredients.ingredient_id = recipeIngredients.ingredient_id JOIN recipeIngredients ON recipes.recipe_id = recipeIngredients.recipe_id' 
+    cursor.execute('Select * from ' + TABLE + ' JOIN ingredients ON ingredients.ingredient_id = recipeIngredients.ingredient_id JOIN recipeIngredients ON recipes.recipe_id = recipeIngredients.recipe_id') 
     return cursor.fetchall()
   else:
     print "Not logged in to database!\n"
