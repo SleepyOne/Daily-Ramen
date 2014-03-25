@@ -29,11 +29,12 @@ def createAccount():
 @app.route('/search_recipe/<id>',methods = ['GET','POST'])
 def searchRecipe(id):
   info = dBase.getRecipeInfo(id)
-  print info[0][0]
+  """print info[0][0]
   print info[0][1]
-  print info[0][2]
+  print info[0][2]"""
   ingredients = dBase.getIngredients(id)
-  comments = []
+  comments = dBase.getComments(id)
+  print '!!!!!!' + str(comments)
   if request.method == 'POST':
     print request.form['comment']
     #do stuff if the user just posted a comment

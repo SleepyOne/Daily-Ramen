@@ -61,6 +61,22 @@ def getIngredients(searchID):#gets the ingredients of a given recipe id
   else:
     print "Not logged in to database!\n"
 
+def getComments(searchID):#gets the commentss of a given recipe id
+  global cursor
+  if initialized:
+    cursor.execute('Select cm.comment from recipes rec inner join comments cm on rec.recipe_id = cm.recipe_id where rec.recipe_id = ' + str(searchID) + ';')
+    return cursor.fetchall()
+  else:
+    print "Not logged in to database!\n"
+
+def addComment(recipeID,text):#adds a comment to a given recipe id
+  global cursor
+  if initialized:
+    cursor.execute('insert into comments values (NULL, '+ text + ','+ str(searchID) + ');')
+    return cursor.fetchall()
+  else:
+    print "Not logged in to database!\n"    
+    
 def searchIngredients(searchTerm): #queries by ingredients the recipe contains
   if initialized:
     global cursor
