@@ -64,8 +64,7 @@ def getIngredients(searchID):#gets the ingredients of a given recipe id
 def searchIngredients(searchTerm): #queries by ingredients the recipe contains
   if initialized:
     global cursor
-    # QUERY IS NOT COMPLETE
-    cursor.execute('Select * from ' + TABLE + ' JOIN ingredients ON ingredients.ingredient_id = recipeIngredients.ingredient_id JOIN recipeIngredients ON recipes.recipe_id = recipeIngredients.recipe_id') 
+    cursor.execute('Select * from ' + TABLE + ' JOIN ingredients ON ingredients.ingredient_id = recipeIngredients.ingredient_id JOIN recipeIngredients ON recipes.recipe_id = recipeIngredients.recipe_id WHERE ingredients.ingredient_name like "%' + searchTerm + '%;"')
     return cursor.fetchall()
   else:
     print "Not logged in to database!\n"
