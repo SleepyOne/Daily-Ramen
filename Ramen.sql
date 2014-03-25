@@ -26,7 +26,7 @@ INSERT INTO recipes (recipe_id, recipe_name, recipe_instructions, recipe_creator
 CREATE TABLE ingredients
 (
   ingredient_id INT NOT NULL AUTO_INCREMENT,
-  ingredient_name VARCHAR(40)
+  ingredient_name VARCHAR(40),
   PRIMARY KEY (ingredient_id)
 );
 
@@ -52,6 +52,14 @@ CREATE TABLE recipeIngredients
     FOREIGN KEY (ingredient_id) REFERENCES ingredients (ingredient_id)
 );
 
+insert into recipeIngredients values
+(1,2), (1,5), (1,7),
+(2,4), (2,1), (2,6),
+(3,1),(3,3),
+(4,1),(4,4),
+(5,3);
+
+
 
 CREATE TABLE users
 (
@@ -60,7 +68,7 @@ CREATE TABLE users
   password VARCHAR(25),
   PRIMARY KEY (user_id)
 );
-
+/*
 CREATE TABLE comments
 (
   comment_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -70,3 +78,4 @@ CREATE TABLE comments
   FOREIGN KEY (recipe_id)
   REFERENCES recipe (recipe_id)
 );
+*/

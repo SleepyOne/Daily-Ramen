@@ -28,22 +28,18 @@ def createAccount():
 
 @app.route('/search_recipe/<id>',methods = ['GET','POST'])
 def searchRecipe(id):
-  info = []
-  info.append(id)
-  info.append(id)
-  info.append(id)
-  print info
-  print info[0]
-  print info[1]
-  print info[2]
-  ingredients = []
+  info = dBase.getRecipeInfo(id)
+  print info[0][0]
+  print info[0][1]
+  print info[0][2]
+  ingredients = dBase.getIngredients(id)
   comments = []
   if request.method == 'POST':
     print request.form['comment']
     #do stuff if the user just posted a comment
 
   #canComment is true if the user is logged in, and hence can post a comment
-  return render_template('search_recipe.html',info = info,ingredients = ingredients,comments = comments,canComment = True)
+  return render_template('search_recipe.html',info = info[0],ingredients = ingredients,comments = comments,canComment = True)
 
 @app.route('/underConstruction')
 def underConstruction():

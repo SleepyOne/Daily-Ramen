@@ -42,7 +42,25 @@ def searchSimilarName(searchTerm): #queries by term is contained in recipe name
     return cursor.fetchall()
   else:
     print "Not logged in to database!\n"
-	
+
+def getRecipeInfo(searchID): #gets specific information from a given recipe id    
+  global cursor
+  if initialized:
+    print 'Select recipe_name, recipe_creator, recipe_instructions from recipes where recipe_id = ' + str(searchID) + ';'
+    cursor.execute('Select recipe_name, recipe_creator, recipe_instructions from recipes where recipe_id = ' + str(searchID) + ';')
+    return cursor.fetchall()
+  else:
+    print "Not logged in to database!\n"
+
+  
+def getIngredients(searchID):#gets the ingredients of a given recipe id
+  global cursor
+  if initialized:
+    cursor.execute('Select ing.ingredient_name from recipes rec inner join recipeIngredients ri inner join ingredients ing on rec.recipe_id = ri.recipe_id and ri.ingredient_id = ing.ingredient_id where rec.recipe_id = ' + str(searchID) + ';')
+    return cursor.fetchall()
+  else:
+    print "Not logged in to database!\n"
+
 def searchIngredients(searchTerm): #queries by ingredients the recipe contains
   if initialized:
     global cursor
