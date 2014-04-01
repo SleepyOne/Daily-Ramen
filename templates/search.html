@@ -5,14 +5,14 @@
 <h4>Results:</h4>
 <h3>_____</h3>
 {% for x in matches %}
-<p><strong>Recipe: <a href = '/search_recipe/{{x[4]}}'>{{x[1]}}</a></strong></p>
+<p><strong>Recipe: <a href = '/search_recipe={{x[4]}}'>{{x[1]}}</a></strong></p>
   <p><strong>By: {{x[3]}}</strong></p>
   <h3>_____</h3>
 {% endfor %}
 
 
 {% for x in closeMatches %}
-<p><strong>Recipe: <a href = '/search_recipe/{{x[4]}}'>{{x[1]}}</a></strong></p>
+<p><strong>Recipe: <a href = '/search_recipe={{x[4]}}'>{{x[1]}}</a></strong></p>
   <p><strong>By: {{x[3]}}</strong></p>
   <h3>_____</h3>
 {% endfor %}

@@ -26,7 +26,7 @@ def login():
 def createAccount():
   return render_template('createAccount.html')
 
-@app.route('/search_recipe/<id>',methods = ['GET','POST'])
+@app.route('/search_recipe=<id>',methods = ['GET','POST'])
 def searchRecipe(id):
   info = dBase.getRecipeInfo(id)
   """print info[0][0]
