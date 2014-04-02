@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <script>
+    // <!--code borrowed heavily from http://stackoverflow.com/questions/12673596/adding-a-text-field-with-click-of-a-button-with-javascript-all-content-except-t -->
+
+	function adding() {
+    var form = document.getElementsByTagName('form')[0],
+	  input = document.createElement('input'),
+		brk = document.createElement('br');
+
+    form.insertBefore(input,document.getElementsByTagName('button')[0]);
+		form.insertBefore(brk,document.getElementsByTagName('button')[0]);
+	};
+
+  </script>
+  <form name = "rec" method="post" action="/confirmLogin">
+    <p>
+    <label for="title">Recipe Name:</label>
+    <input type="text" id="title" name="title" size="40"> </p>
+    <p>
+    <label for="ingredient">Ingredients:</label>
+      <input type="password" id="password" name="pw" size="40" /></p>
+      <button type = 'button' onclick = 'adding()'>Add Ingredient</button>
+      <p></p>
+
+  <textarea cols="60" rows="10" name="directions">How do you prepare the dish?</textarea>
+  <input type = 'submit' value = 'submit'>
+    
+  </form>
+
+{% endblock %}
