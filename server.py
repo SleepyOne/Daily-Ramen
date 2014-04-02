@@ -46,6 +46,19 @@ def searchRecipe(id):
 def underConstruction():
   return render_template('underConstruction.html')
 
+@app.route('/confirm')
+def confirm():
+  name = request.form['name']
+  password = request.form['password']
+  
+  query = "select user_name from users WHERE user_name = '%s' (name)
+  cur.execute(query)
+  
+  if cur.fetchone():
+    return render_template('login.html')
+  else
+    
+
 if __name__ == '__main__':
     app.debug = True
     app.run(host='0.0.0.0', port=3000)
