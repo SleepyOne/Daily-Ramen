@@ -83,7 +83,7 @@ def confirm():
   
   if cur.fetchone():
     return redirect(url_for('login.html'))
-  query = "INSERT INTO users (user_name, password) VALUES ('%s','%s')" % (name, password)
+  query = "INSERT INTO users (mysql.escape_string(user_name), mysql.escape_string(password)) VALUES ('%s','%s')" % (name, password)
   cur.execute(query)
   return render_template('index.html')
 
