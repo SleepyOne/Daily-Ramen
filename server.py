@@ -51,13 +51,14 @@ def confirm():
   name = request.form['name']
   password = request.form['password']
   
-  query = "select user_name from users WHERE user_name = '%s' (name)
+  query = "select user_name from users WHERE user_name = '%s'" (name)
   cur.execute(query)
   
   if cur.fetchone():
-    return render_template('login.html')
-  else
-    
+    return redirect(url_for('login.html'))
+  query = "INSERT INTO users (user_name, password) VALUES ('%s','%s')" % (name, password)
+  cur.execute(query)
+  return render_template('index.html')
 
 if __name__ == '__main__':
     app.debug = True
