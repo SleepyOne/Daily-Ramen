@@ -46,12 +46,15 @@ def searchRecipe(id):
 def underConstruction():
   return render_template('underConstruction.html')
 
-@app.route('/confirm')
+@app.route('/confirm', methods=['GET', 'POST'])
 def confirm():
   name = request.form['name']
   password = request.form['password']
   
-  query = "select user_name from users WHERE user_name = '%s'" (name)
+  db = dBase.db_connect()
+  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
+  
+  query = "select user_name from users WHERE user_name = '%s'" % (name)
   cur.execute(query)
   
   if cur.fetchone():
