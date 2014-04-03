@@ -34,12 +34,14 @@ def searchRecipe(id):
   print info[0][1]
   print info[0][2]"""
   ingredients = dBase.getIngredients(id)
-  comments = dBase.getComments(id)
- # print '!!!!!!' + str(comments)
+  # print '!!!!!!' + str(comments)
+  print str(info) + '++'
+  print str(ingredients) + '++'
   if request.method == 'POST':
     print request.form['comment']
     dBase.addComment(id,request.form['comment'])
     #do stuff if the user just posted a comment
+
   comments = dBase.getComments(id)
 
   #canComment is true if the user is logged in, and hence can post a comment
@@ -83,7 +85,7 @@ def confirm():
   
   if cur.fetchone():
     return redirect(url_for('login.html'))
-  query = "INSERT INTO users (mysql.escape_string(user_name), mysql.escape_string(password)) VALUES ('%s','%s')" % (name, password)
+  query = "INSERT INTO users (user_name, password) VALUES ('%s','%s')" % (name, password)
   cur.execute(query)
   return render_template('index.html')
 
