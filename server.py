@@ -35,10 +35,12 @@ def searchRecipe(id):
   print info[0][2]"""
   ingredients = dBase.getIngredients(id)
   comments = dBase.getComments(id)
-  print '!!!!!!' + str(comments)
+ # print '!!!!!!' + str(comments)
   if request.method == 'POST':
     print request.form['comment']
+    dBase.addComment(id,request.form['comment'])
     #do stuff if the user just posted a comment
+  comments = dBase.getComments(id)
 
   #canComment is true if the user is logged in, and hence can post a comment
   return render_template('search_recipe.html',info = info[0],ingredients = ingredients,comments = comments,canComment = True)
