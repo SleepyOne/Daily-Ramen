@@ -34,15 +34,11 @@ def searchRecipe(id):
   print info[0][1]
   print info[0][2]"""
   ingredients = dBase.getIngredients(id)
-  # print '!!!!!!' + str(comments)
-  print str(info) + '++'
-  print str(ingredients) + '++'
+  comments = dBase.getComments(id)
+  print '!!!!!!' + str(comments)
   if request.method == 'POST':
     print request.form['comment']
-    dBase.addComment(id,request.form['comment'])
     #do stuff if the user just posted a comment
-
-  comments = dBase.getComments(id)
 
   #canComment is true if the user is logged in, and hence can post a comment
   return render_template('search_recipe.html',info = info[0],ingredients = ingredients,comments = comments,canComment = True)
@@ -74,19 +70,24 @@ def submitRecipe():
 
 @app.route('/confirm', methods=['GET', 'POST'])
 def confirm():
+  global cursor
+  DATABASE='RamenDB'
+  DB_USER = 'RamenMaster'
+  DB_PASSWORD = 'RamenPassword'
+  HOST = 'localhost'
+  database = MySQLdb.connect(HOST, DB_USER, DB_PASSWORD, DATABASE)
+  cursor = database.cursor()
   name = request.form['name']
   password = request.form['password']
   
-  db = dBase.db_connect()
-  cur = db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
-  
   query = "select user_name from users WHERE user_name = '%s'" % (name)
-  cur.execute(query)
+  cursor.execute(query)
   
-  if cur.fetchone():
-    return redirect(url_for('login.html'))
+  #if cursor.fetchone():
+  #  return redirect(url_for('login.html'))
   query = "INSERT INTO users (user_name, password) VALUES ('%s','%s')" % (name, password)
-  cur.execute(query)
+  cursor.execute(query)
+  database.commit()
   return render_template('index.html')
 
 @app.route('/confirmLogin', methods=['GET', 'POST'])
