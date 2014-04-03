@@ -15,17 +15,18 @@ cursor = None
 
 def dBaseInit():
   global database
-  database = MySQLdb.connect(HOST, DB_USER, DB_PASSWORD, DATABASE)#connects to database
-  global cursor
-  cursor = database.cursor()
-  if cursor is not None and database is not None:
-    print 'in'
-    cursor.execute('Select * from ' + MySQLdb.escape_string(TABLE) + ' where recipe_name Like "' + "%a%" + '";')
-    stu = cursor.fetchall()
-    for x in stu:
-      print x[1]
-    global initialized
-    initialized = True
+  global initialized
+  if not initialized:
+    database = MySQLdb.connect(HOST, DB_USER, DB_PASSWORD, DATABASE)#connects to database
+    global cursor
+    cursor = database.cursor()
+    if cursor is not None and database is not None:
+      print 'in'
+      cursor.execute('Select * from ' + MySQLdb.escape_string(TABLE) + ' where recipe_name Like "' + "%a%" + '";')
+      stu = cursor.fetchall()
+      for x in stu:
+        print x[1]
+      initialized = True
     
 def queryName(searchTerm): #queries by exact name
   if initialized:
@@ -43,6 +44,34 @@ def searchSimilarName(searchTerm): #queries by term is contained in recipe name
   else:
     print "Not logged in to database!\n"
 
+def addRecipe(title, ingredients, directions):    
+  if initialized:
+    global cursor
+    query = "INSERT INTO recipes (recipe_id, recipe_name, recipe_instructions, recipe_creator, recipe_rating) values (NULL,'" + MySQLdb.escape_string(title) + "','" + MySQLdb.escape_string(directions) + "','user',NULL);"
+    """Insert basic recipe info"""
+    cursor.execute(query)
+    print query
+    recID = cursor.lastrowid
+    print recID
+    ingList = []
+    for x in ingredients:#Sort listed ingreients
+      cursor.execute('Select ingredient_id from ingredients where ingredient_name = "' + MySQLdb.escape_string(x) + '";')
+      z = cursor.fetchall()
+      if(len(z) > 0):#If ingredient is in list of current ingredients, store the ID!
+        print '!!!!' + str(z[0][0])
+        ingList.append(z[0][0])
+      else:#If ingredient is new, store it in the database and get its ID!
+        print 'Insert into ingredients values (NULL,"'+MySQLdb.escape_string(x)+'");'
+        cursor.execute('Insert into ingredients values (NULL,"'+MySQLdb.escape_string(x)+'");')
+        ingList.append(cursor.lastrowid)
+    for num in ingList:#insert the stuff pairing up the user-defined recipe with the ingredients (juncture table)
+      stuff = 'Insert into recipeIngredients VALUES ('+str(recID)+','+str(num)+');'
+      print stuff
+      cursor.execute(stuff)
+
+  else:
+    print "Not logged in to database!\n"
+    
 def getRecipeInfo(searchID): #gets specific information from a given recipe id    
   global cursor
   if initialized:

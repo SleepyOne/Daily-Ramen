@@ -4,6 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def mainIndex():
+  dBase.dBaseInit()
   return render_template('index.html')
 
 @app.route('/search', methods=['GET','POST'])
@@ -45,6 +46,27 @@ def searchRecipe(id):
 @app.route('/underConstruction')
 def underConstruction():
   return render_template('underConstruction.html')
+
+@app.route('/recipeForm')
+def recipeForm():
+  return render_template('recipeForm.html')
+
+@app.route('/submitRecipe',methods = ['POST'])
+def submitRecipe():
+  dBase.dBaseInit()
+  title = request.form['title']
+  print title
+  length = len(request.form)
+  text = request.form['directions']
+  ingredients = []
+  for i in range(1,length-1):
+    if i != '':
+      ingredients.append(request.form['i' + str(i)])#assembles the name of each ingredient text box
+      print request.form['i' + str(i)]
+  
+  
+  dBase.addRecipe(title,ingredients,text)
+  return render_template('submitRecipe.html')
 
 @app.route('/confirm', methods=['GET', 'POST'])
 def confirm():

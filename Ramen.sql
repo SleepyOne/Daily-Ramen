@@ -80,4 +80,8 @@ CREATE TABLE comments
 );
 
 insert into comments values
-(NULL,'Do NOT try ading tomatoes. Worst mistake of my life. Of course, I was using nuclear tomatoes...',1);
+(NULL,'Do NOT try ading tomatoes. Worst mistake of my life. Of course, I was using nuclear tomatoes...',1),
+(NULL,'Does anyone know why my vegetarian girlfriend punched me when I attempted to make this recipe?',2),
+(NULL,'For an extra kick, add bacon!',3),
+(NULL,'First!',4),
+(NULL,'Can anyone offer me advice? I think myy toaster only goes up to 5 degrees. What is the temperature equivilant for the Bagel setting?',5);
