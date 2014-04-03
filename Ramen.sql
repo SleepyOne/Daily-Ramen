@@ -13,8 +13,10 @@ CREATE TABLE recipes
   recipe_instructions TEXT,
   recipe_creator VARCHAR(15),
   recipe_rating INT,
-  PRIMARY KEY (recipe_id)
+  PRIMARY KEY (recipe_id),
+  INDEX recipe_index (recipe_name)
 );
+
 
 INSERT INTO recipes (recipe_id, recipe_name, recipe_instructions, recipe_creator, recipe_rating) VALUES (NULL,'Ramen', 'You can either put boiling water in the ramen or you can boil the noodles in the water.', 'Ian', 1);
 INSERT INTO recipes (recipe_id, recipe_name, recipe_instructions, recipe_creator, recipe_rating) VALUES (NULL,'Salad', 'Mix ingrediants in a large covered bowl then consume.', 'Ian', 2);
@@ -27,7 +29,8 @@ CREATE TABLE ingredients
 (
   ingredient_id INT NOT NULL AUTO_INCREMENT,
   ingredient_name VARCHAR(40),
-  PRIMARY KEY (ingredient_id)
+  PRIMARY KEY (ingredient_id),
+  Index recipe_index (ingredient_name)
 );
 
 INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Cheese');
