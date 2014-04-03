@@ -33,12 +33,13 @@ def searchRecipe(id):
   """print info[0][0]
   print info[0][1]
   print info[0][2]"""
-  if request.method == 'POST':
-    print request.form['comment']
-    dBase.addComment(id,request.form['comment'])
-    #do stuff if the user just posted a comment
   ingredients = dBase.getIngredients(id)
   comments = dBase.getComments(id)
+  print '!!!!!!' + str(comments)
+  if request.method == 'POST':
+    print request.form['comment']
+    #do stuff if the user just posted a comment
+
   #canComment is true if the user is logged in, and hence can post a comment
   return render_template('search_recipe.html',info = info[0],ingredients = ingredients,comments = comments,canComment = True)
 
@@ -83,6 +84,13 @@ def confirm():
   query = "INSERT INTO users (user_name, password) VALUES ('%s','%s')" % (name, password)
   cur.execute(query)
   return render_template('index.html')
+
+@app.route('/confirmLogin', methods=['GET', 'POST'])
+def confirmLogin():
+  name = request.form['name']
+  password = request.form['password']
+  if true:
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.debug = True

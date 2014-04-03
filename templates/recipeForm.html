@@ -23,6 +23,7 @@
 	};
 
   </script>
+  <center>
   <form name = "rec" method="POST" id = 'recSub' action="/submitRecipe">
     <p>
     <label for="title">Recipe Name:</label>
@@ -33,9 +34,10 @@
       <button type = 'button' id = 'more' onclick = 'adding()'>Add Ingredient</button>
       <p></p>
 
-  <textarea cols="60" rows="10" name="directions">How do you prepare the dish? (List quantities here)</textarea>
-  <input type = 'submit' value = 'submit'>
+    <textarea cols="60" rows="10" name="directions">How do you prepare the dish? (List quantities here)</textarea><br/><br/>
+  <input type = 'submit' value = 'Submit'>
     
   </form>
+</center>
 
 {% endblock %}
