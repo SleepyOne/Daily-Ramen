@@ -23,6 +23,13 @@ INSERT INTO recipes (recipe_id, recipe_name, recipe_instructions, recipe_creator
 INSERT INTO recipes (recipe_id, recipe_name, recipe_instructions, recipe_creator, recipe_rating) VALUES (NULL,'Grilled cheese', 'Butter bread, lightly toast bread, insert Kraft single. enjoy Could also add tomatoes for flavor', 'Ian', 3);
 INSERT INTO recipes (recipe_id, recipe_name, recipe_instructions, recipe_creator, recipe_rating) VALUES (NULL,'Mac and cheese', 'Boil water, add macoroni noodles, drain water once noodles are fully cooked, add cheese, enjoy.', 'Ian', 5);
 INSERT INTO recipes (recipe_id, recipe_name, recipe_instructions, recipe_creator, recipe_rating) VALUES (NULL,'Toast', 'Heat Bread in a toaster oven, enjoy.', 'Ian', 4);
+INSERT INTO recipes (recipe_id, recipe_name, recipe_instructions, recipe_creator, recipe_rating) VALUES (NULL,'Waffles', 'Pour batter into waffle iron and wait until the alarm sounds.', 'Ian', 5);
+INSERT INTO recipes (recipe_id, recipe_name, recipe_instructions, recipe_creator, recipe_rating) VALUES (NULL,'Pancakes', 'Pour batter into stovetop pan and cook until golden brown.', 'Ian', 6);
+INSERT INTO recipes (recipe_id, recipe_name, recipe_instructions, recipe_creator, recipe_rating) VALUES (NULL,'Pizza', 'Top the dough with any desired ingredients and bake at 450 degrees until crust is golden brown.', 'Ian', 7);
+INSERT INTO recipes (recipe_id, recipe_name, recipe_instructions, recipe_creator, recipe_rating) VALUES (NULL,'Eggs', 'Pour scrambled eggs into stovetop pan and cook until they become solid.', 'Ian', 8);
+INSERT INTO recipes (recipe_id, recipe_name, recipe_instructions, recipe_creator, recipe_rating) VALUES (NULL,'Hamburger', 'Throw onto grill and flip repeatedly until the inside is no longer red and bloody.', 'Ian', 9);
+INSERT INTO recipes (recipe_id, recipe_name, recipe_instructions, recipe_creator, recipe_rating) VALUES (NULL,'Flan', 'Do not try to make this, because it is too complicated and disgusting.', 'Ian', 10);
+INSERT INTO recipes (recipe_id, recipe_name, recipe_instructions, recipe_creator, recipe_rating) VALUES (NULL,'Apples', 'Spread peanut butter on cut up apple slices and enjoy.', 'Ian', 11);
 
 
 CREATE TABLE ingredients
@@ -39,7 +46,21 @@ INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Bread');
 INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Pasta');
 INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Lettuce');
 INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Chocolate');
-INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Chicken');
+INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Egg');
+INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Apple');
+INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Peanut butter');
+INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Dough');
+INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Pepperoni');
+INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Suger');
+INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Flour');
+INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Salt');
+INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Butter');
+INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Tomato sauce');
+INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Banana');
+INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Nutella');
+INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Noodles');
+INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Caramel');
+INSERT INTO ingredients (ingredient_id, ingredient_name) VALUES (NULL, 'Beef');
 
 
 CREATE TABLE recipeIngredients
