@@ -27,6 +27,13 @@ def dBaseInit():
       for x in stu:
         print x[1]
       initialized = True
+      
+def commit():
+  if initialized:
+    global database
+    database.commit();
+  else:
+    print "Not logged in to database!\n"  
     
 def queryName(searchTerm): #queries by exact name
   if initialized:
@@ -68,7 +75,7 @@ def addRecipe(title, ingredients, directions):
       stuff = 'Insert into recipeIngredients VALUES ('+str(recID)+','+str(num)+');'
       print stuff
       cursor.execute(stuff)
-
+    commit()
   else:
     print "Not logged in to database!\n"
     
@@ -101,8 +108,8 @@ def getComments(searchID):#gets the commentss of a given recipe id
 def addComment(recipeID,text):#adds a comment to a given recipe id
   global cursor
   if initialized:
-    cursor.execute('insert into comments values (NULL, '+ MySQLdb.escape_string(text) + ','+ MySQLdb.escape_string(str(searchID)) + ');')
-    return cursor.fetchall()
+    cursor.execute('insert into comments values (NULL, "'+ MySQLdb.escape_string(text) + '",'+ MySQLdb.escape_string(str(recipeID)) + ');')
+    commit()
   else:
     print "Not logged in to database!\n"    
     
