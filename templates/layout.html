@@ -37,12 +37,15 @@
   <title>Daily Ramen</title>
   <br/>
   <header>
-  <h1><font face="verdana" size="20" color="#FF7519">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Daily Ramen</font>
+  <span><h1><font face="verdana" size="20" color="#FF7519">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Daily Ramen</font>
   
-    <span><font face="verdana" size="4" color="#FF7519">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/login">Login</a></font>
-    <font face="verdana" size="4" color="#FF7519">|</font>
-      <font face="verdana" size="4" color="#FF7519"><a href="/createAccount">Register</a></font></span>
-  </h1>  
+    <div style="text-align:right; margin-right:450px;">  
+      <form action="search" method = 'post'>
+            <input type="text" name="searchword">
+            <input type="submit" value="Search">
+      </form>
+    </div>
+    </h1></span>
   </header>
   
   <div id="navbar"> 
@@ -52,10 +55,7 @@
     <li><a href="/search">Recipes</a></li> 
     <li><a href="/createAccount">Join</a></li> 
     <li><a href="/login">Log In</a></li>
-    <li><form action="search" method = 'post'>
-            <input type="text" name="searchword">
-            <input type="submit" value="Search">
-      </form></li>
+    
   </ul> 
   </div> 
   
